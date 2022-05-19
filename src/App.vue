@@ -1,5 +1,11 @@
 <template>
   <div class="back">
+    <h2>投稿一覧</h2>
+    <div v-for="post in posts" :key="post.name">
+      <hr>
+      <p>名前：{{post.fields.name.stringValue}}</p>
+      <p>コメント：{{post.fields.comment.stringValue}}</p>
+    </div>
     <h1>掲示板！</h1>
     名前
     <div><input type="text" v-model="name"></div>
@@ -8,7 +14,6 @@
     <br>
     <button @click="submitPosts">投稿する</button>
     <br><br>
-    <h2>投稿一覧</h2>
   </div>
 </template>
 
@@ -19,8 +24,12 @@ export default {
   data() {
     return {
       name: '',
-      comment: ''
+      comment: '',
+      posts: ''
     }
+  },
+    created() {
+    this.getPosts();
   },
   methods: {
     submitPosts() {
@@ -39,6 +48,15 @@ export default {
       ).then(() => {
         this.name = '';
         this.comment = '';
+        this.getPosts();
+      });
+    },
+    getPosts() {
+      axios.get(
+        "https://firestore.googleapis.com/v1/projects/vue-board-7fd17/databases/(default)/documents/posts"
+      )
+      .then(res => {
+        this.posts = res.data.documents;
       });
     }
   }
