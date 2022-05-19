@@ -1,11 +1,14 @@
 <template>
   <div class="back">
-    <div class="">
-      <p>送信:</p>
-      <p>{{ sendMessage }}</p>
-      <textarea v-model="message"></textarea>
-      <button @click="sendChat">送信</button>
-    </div>
+    <h1>掲示板！</h1>
+    名前
+    <div><input type="text" v-model="name"></div>
+    コメント
+    <div><textarea v-model="comment"></textarea></div>
+    <br>
+    <button @click="submitPosts">投稿する</button>
+    <br><br>
+    <h2>投稿一覧</h2>
   </div>
 </template>
 
@@ -15,14 +18,13 @@
 export default {
   data() {
     return {
-      message: '',
-      sendMessage: ''
+      name: '',
+      comment: ''
     }
   },
   methods: {
-    sendChat() {
-      this.sendMessage = this.message
-      this.message = ''
+    submitPosts() {
+      console.log('submit');
     }
   }
 }
