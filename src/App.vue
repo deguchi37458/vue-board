@@ -13,7 +13,7 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 
 export default {
   data() {
@@ -24,7 +24,22 @@ export default {
   },
   methods: {
     submitPosts() {
-      console.log('submit');
+      axios.post(
+        "https://firestore.googleapis.com/v1/projects/vue-board-7fd17/databases/(default)/documents/posts",
+        {
+          fields: {
+            name: {
+              stringValue: this.name
+            },
+            comment: {
+              stringValue: this.comment
+            }
+          }
+        }
+      ).then(() => {
+        this.name = '';
+        this.comment = '';
+      });
     }
   }
 }
