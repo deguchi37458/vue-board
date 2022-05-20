@@ -2,7 +2,6 @@
   <div class="back">
     <div class="wrapper">
       <div v-for="post in posts" :key="post.name">
-        <span>{{post.fields.num.stringValue}}</span>
         <p>名前：{{post.fields.name.stringValue}}</p>
         <p>コメント：{{post.fields.comment.stringValue}}</p>
       </div>
