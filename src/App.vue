@@ -4,6 +4,7 @@
       <div v-for="post in posts" :key="post.name">
         <p>名前：{{post.fields.name.stringValue}}</p>
         <p>コメント：{{post.fields.comment.stringValue}}</p>
+        <p>投稿日時：{{post.fields.created.timestampValue | dateFilter}}</p>
       </div>
       <input type="text" v-model="name">
       <textarea v-model="comment"></textarea>
@@ -13,7 +14,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import moment from 'moment';
 
 export default {
   data() {
@@ -37,6 +39,9 @@ export default {
             },
             comment: {
               stringValue: this.comment
+            },
+            created: {
+              timestampValue: new Date()
             }
           }
         }
@@ -52,10 +57,16 @@ export default {
       )
       .then(res => {
         this.posts = res.data.documents;
+        console.log(res.data.documents);
       });
     }
+  },
+  filters: {
+    dateFilter(date) {
+      return moment(date).format('YYYY/MM/DD HH:mm:ss');
+    }
   }
-}
+};
 </script>
 
 <style scoped>
