@@ -1,19 +1,21 @@
 <template>
   <div class="back">
-    <h2>投稿一覧</h2>
-    <div v-for="post in posts" :key="post.name">
-      <hr>
-      <p>名前：{{post.fields.name.stringValue}}</p>
-      <p>コメント：{{post.fields.comment.stringValue}}</p>
+    <div class="wrapper">
+      <h2>投稿一覧</h2>
+      <div v-for="post in posts" :key="post.name">
+        <hr>
+        <p>名前：{{post.fields.name.stringValue}}</p>
+        <p>コメント：{{post.fields.comment.stringValue}}</p>
+      </div>
+      <h1>掲示板！</h1>
+      名前
+      <div><input type="text" v-model="name"></div>
+      コメント
+      <div><textarea v-model="comment"></textarea></div>
+      <br>
+      <button @click="submitPosts">投稿する</button>
+      <br><br>
     </div>
-    <h1>掲示板！</h1>
-    名前
-    <div><input type="text" v-model="name"></div>
-    コメント
-    <div><textarea v-model="comment"></textarea></div>
-    <br>
-    <button @click="submitPosts">投稿する</button>
-    <br><br>
   </div>
 </template>
 

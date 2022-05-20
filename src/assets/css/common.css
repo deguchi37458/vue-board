@@ -5,3 +5,12 @@
     width: 100%;
     min-height: 100vh;
 }
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+textarea {
+    background-color: #fff;
+}
