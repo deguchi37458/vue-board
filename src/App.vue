@@ -1,14 +1,13 @@
 <template>
   <div class="back">
     <div class="wrapper">
-      <div v-for="post in posts" :key="post.name">
-        <p>名前：{{post.fields.name.stringValue}}</p>
-        <p>コメント：{{post.fields.comment.stringValue}}</p>
-        <p>投稿日時：{{post.fields.created.timestampValue | dateFilter}}</p>
+      <div class="post" v-for="post in posts" :key="post.name">
+        <span class="name">{{post.fields.name.stringValue}}</span>
+        <span class="date">{{post.fields.created.timestampValue | dateFilter}}</span>
+        <p class="comment">{{post.fields.comment.stringValue}}</p>
       </div>
-      <input type="text" v-model="name">
+      <button @click="submitPosts">書き込む</button><span>名前：</span><input type="text" v-model="name"><br>
       <textarea v-model="comment"></textarea>
-      <button @click="submitPosts">投稿する</button>
     </div>
   </div>
 </template>
@@ -70,8 +69,22 @@ export default {
 </script>
 
 <style scoped>
-@import './assets/css/destyle.css';
+/* @import './assets/css/destyle.css'; */
 @import './assets/css/common.css';
+
+.post {
+  margin-bottom: 20px;
+}
+.name {
+  color: green;
+  font-weight: bold;
+}
+.comment {
+  margin-left: 30px;
+}
+.date {
+
+}
 
 
 </style>

@@ -1,6 +1,21 @@
 @charset "utf-8";
 
+body {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+    margin: 0;
+}
+
 .back {
+
     background-color: #efefef;
     width: 100%;
     min-height: 100vh;
@@ -14,6 +29,9 @@
 input {
     background-color: #fff;
 }
+
 textarea {
     background-color: #fff;
+    min-width:700px;
+    min-height :150px;  
 }
