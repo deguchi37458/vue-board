@@ -62,7 +62,8 @@ export default {
   },
   filters: {
     dateFilter(date) {
-      return moment(date).format('YYYY/MM/DD HH:mm:ss');
+      moment.locale("ja");
+      return moment(date).format('YYYY/MM/DD(ddd) HH:mm:ss');
     }
   }
 };
