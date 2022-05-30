@@ -70,7 +70,6 @@ export default {
 </script>
 
 <style scoped>
-/* @import './assets/css/destyle.css'; */
 @import './assets/css/common.css';
 
 .post {
