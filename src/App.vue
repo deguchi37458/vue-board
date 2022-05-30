@@ -29,6 +29,9 @@ export default {
   },
   methods: {
     submitPosts() {
+      if( this.name === ""){
+        this.name = "名無し";
+      }
       axios.post(
         "https://firestore.googleapis.com/v1/projects/vue-board-7fd17/databases/(default)/documents/posts",
         {
