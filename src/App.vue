@@ -1,6 +1,7 @@
 <template>
   <div class="back">
     <div class="wrapper">
+      <h1 class="title">Vueで懐かしい掲示板を作ってみたスレ</h1>
       <div class="post" v-for="post in posts" :key="post.name">
         <span class="name">{{post.fields.name.stringValue}}</span>
         <span class="date">{{post.fields.created.timestampValue | dateFilter}}</span>
@@ -83,7 +84,11 @@ export default {
 
 <style scoped>
 @import './assets/css/common.css';
-
+.title {
+  color: red;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
 .post {
   margin-bottom: 20px;
 }
