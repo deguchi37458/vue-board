@@ -58,8 +58,17 @@ export default {
         "https://firestore.googleapis.com/v1/projects/vue-board-7fd17/databases/(default)/documents/posts"
       )
       .then(res => {
+        function compare( a, b ){
+          var r = 0;
+          if( a.fields.created.timestampValue < b.fields.created.timestampValue ){ r = -1; }
+          else if( a.fields.created.timestampValue > b.fields.created.timestampValue ){ r = 1; }
+          return r;
+        }
+        res.data.documents.sort(compare);
+        
         this.posts = res.data.documents;
         console.log(res.data.documents);
+
       });
     }
   },
