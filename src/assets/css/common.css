@@ -26,11 +26,6 @@ p{
     min-height: 100vh;
 }
 
-.wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
 input {
     background-color: #fff;
 }
@@ -39,4 +34,15 @@ textarea {
     background-color: #fff;
     min-width:700px;
     min-height :150px;  
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    height: 50px;
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
 }
