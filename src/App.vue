@@ -2,7 +2,10 @@
   <div class="back">
     <div class="wrapper">
       <header>
+        <a href="">戻る</a>
+        <a href="https://github.com/deguchi37458/vue-board" target="_blank">【PR】GitHub</a>
       </header>
+
       <h1 class="title">Vueで懐かしい掲示板を作ってみたスレ</h1>
       <div class="post" v-for="post in posts" :key="post.name">
         <span class="num">{{post.fields.num.integerValue}}:</span>
@@ -12,6 +15,10 @@
       </div>
       <button @click="submitPosts">書き込む</button><span>名前：</span><input type="text" v-model="name"><br>
       <textarea v-model="comment"></textarea>
+
+      <footer>
+        
+      </footer>
     </div>
   </div>
 </template>

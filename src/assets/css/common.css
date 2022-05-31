@@ -44,5 +44,14 @@ textarea {
 header {
     height: 50px;
     border-bottom: 1px solid #000;
+    padding-bottom: 5px;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+footer {
+    height: 50px;
+    border-top: 1px solid #000;
+    margin-top: 20px;
 }
